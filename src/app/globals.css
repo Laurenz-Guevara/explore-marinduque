@@ -1,0 +1,24 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.splashpage::before {
+  content: "";
+  background-image: url('../assets/hero-large.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+
+  /* Add a semi-transparent overlay to darken the background */
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for the desired darkness */
+
+  /* min-width: 100%; */
+}
+
