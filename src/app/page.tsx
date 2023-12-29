@@ -1,17 +1,66 @@
+"use client"
 
-import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import Hero from '@/layouts/hero'
+
+interface Item {
+  id: string;
+  blockType: string;
+  headingOne?: string;
+  mainHeading?: string;
+}
+
+interface Response {
+  docs: Array<Docs>;
+  totalDocs: number;
+  limit: number;
+  totalPages: number;
+  page: number;
+  pagingCounter: number;
+  hasPrevPage: boolean;
+  hasNextPage: boolean;
+  prevPage: boolean | null;
+  nextPage: boolean | null;
+}
+
+interface Docs {
+  id: number;
+  title: string;
+  layout: Array<Item>;
+  slug: string;
+}
 
 export default function Home() {
+  const [data, setData] = useState<Response>();
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/pages?where[slug][equals]=home');
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const result  = await response.json();
+      setData(result);
+      console.log(result.docs[0])
+    } catch (error: any) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <main>
-      <section className="splashpage h-screen grid place-items-center text-center">
-        <div className="bg-black opacity-40 w-full h-full absolute top-0"></div>
-        <div className="z-10">
-        <h1 className="text-xl text-white"><span className="tracking-[1rem] font-light text-2xl">EXPLORE</span><br/><span className="text-9xl leading-[1.4] font-semibold">Marinduque</span></h1>
-        </div>
-      </section>
-      <section className="h-screen bg-green-200">
-      </section>
+      {data &&
+        data.docs[0].layout.map((item: Item, idx: number) => {
+          return (
+            <React.Fragment key={idx}>
+              {item.blockType === 'Hero' && <Hero props={item} />}
+           </React.Fragment> 
+          );
+        })}
     </main>
   );
 }
