@@ -52,7 +52,7 @@ function Navigation({ navigationLinks }: { navigationLinks: NavigationItem[] }) 
         {navigationLinks.length > 0 ? navigationLinks.map((item, id) => (
           <NavigationMenuItem key={id}>
             <Link href={item.href} legacyBehavior passHref>
-              <NavigationMenuLink className="">
+              <NavigationMenuLink className="font-semibold">
                 {item.title}
               </NavigationMenuLink>
             </Link>

@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 html {
-  @apply text-primary
+  @apply text-primary antialiased
 }
 
 p {
@@ -23,10 +23,5 @@ p {
   bottom: 0px;
   left: 0px;
   z-index: -1;
-
-  /* Add a semi-transparent overlay to darken the background */
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for the desired darkness */
-
-  /* min-width: 100%; */
 }
 
