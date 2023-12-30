@@ -2,12 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import Hero from '@/layouts/hero'
+import Heading from '@/layouts/heading'
 
 interface Item {
   id: string;
   blockType: string;
-  headingOne?: string;
-  mainHeading?: string;
 }
 
 interface Response {
@@ -35,7 +34,7 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/pages?where[slug][equals]=home');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=home`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -58,6 +57,7 @@ export default function Home() {
           return (
             <React.Fragment key={idx}>
               {item.blockType === 'Hero' && <Hero props={item} />}
+              {item.blockType === 'Heading' && <Heading props={item} />}
            </React.Fragment> 
           );
         })}
