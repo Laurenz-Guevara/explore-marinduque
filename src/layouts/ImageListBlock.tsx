@@ -7,7 +7,7 @@ export default function Navbar({props} : {props: ImageListBlock}) {
     <section className="w-full container">
       <div className="grid grid-cols-12">
         <div className={`col-span-7 ${props.position === 'left' ? 'pr-10' : 'pl-10 order-1'}`}>
-          <Image className="rounded-xl object-cover h-full" src={process.env.NEXT_PUBLIC_API_URL + props.media.url} alt={props.media.alt} width={props.media.width} height={props.media.height} />
+          <Image className="rounded-xl object-cover h-full" src={props.media.url} alt={props.media.alt} width={props.media.width} height={props.media.height} />
         </div>
         <div className="col-span-5 flex flex-wrap">
           {/*TODO Refactor this so we can map through*/}
