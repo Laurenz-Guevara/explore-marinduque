@@ -14,6 +14,7 @@ export interface Hero extends Item {
 }
 
 export interface ImageListBlock extends Item {
+  position: string;
   media: Media;
   headingOne: string;
   headingTwo: string;
