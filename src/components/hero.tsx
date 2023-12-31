@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 
 interface NavigationItem {
-  headingOne: string;
-  mainHeading: string;
+  headingOne?: string;
+  mainHeading?: string;
 }
 
 export default function Navbar() {

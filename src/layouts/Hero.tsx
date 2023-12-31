@@ -1,11 +1,6 @@
-interface Item {
-  id: string;
-  blockType: string;
-  headingOne?: string;
-  mainHeading?: string;
-}
+import { Hero } from '@/layouts/types';
 
-export default function Navbar({props} : {props : Item}) {
+export default function Navbar({props} : {props : Hero}) {
   return (
     <section className="splashpage relative h-screen grid place-items-center text-center">
       <div className="bg-black opacity-20 w-full h-full absolute top-0"></div>

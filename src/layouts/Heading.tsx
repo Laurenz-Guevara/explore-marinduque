@@ -1,11 +1,6 @@
-interface Item {
-  id: string;
-  blockType: string;
-  headingOne?: string;
-  headingTwo?: string;
-}
+import { Heading } from '@/layouts/types';
 
-export default function Heading({props} : {props : Item}) {
+export default function Heading({props} : {props : Heading}) {
   return (
     <section className="w-full py-20 flex justify-center text-center">
       <div className="space-y-4">

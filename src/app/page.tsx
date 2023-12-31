@@ -1,36 +1,14 @@
 "use client"
 
+import * as Types from '@/layouts/types';
+
 import React, { useEffect, useState } from 'react';
-import Hero from '@/layouts/hero'
-import Heading from '@/layouts/heading'
-
-interface Item {
-  id: string;
-  blockType: string;
-}
-
-interface Response {
-  docs: Array<Docs>;
-  totalDocs: number;
-  limit: number;
-  totalPages: number;
-  page: number;
-  pagingCounter: number;
-  hasPrevPage: boolean;
-  hasNextPage: boolean;
-  prevPage: boolean | null;
-  nextPage: boolean | null;
-}
-
-interface Docs {
-  id: number;
-  title: string;
-  layout: Array<Item>;
-  slug: string;
-}
+import Hero from '@/layouts/Hero'
+import Heading from '@/layouts/Heading'
+import ImageListBlock from '@/layouts/ImageListBlock'
 
 export default function Home() {
-  const [data, setData] = useState<Response>();
+  const [data, setData] = useState<Types.Response>();
 
   const fetchData = async () => {
     try {
@@ -53,11 +31,12 @@ export default function Home() {
   return (
     <main>
       {data &&
-        data.docs[0].layout.map((item: Item, idx: number) => {
+        data.docs[0].layout.map((item: Types.Item, idx: number) => {
           return (
             <React.Fragment key={idx}>
-              {item.blockType === 'Hero' && <Hero props={item} />}
-              {item.blockType === 'Heading' && <Heading props={item} />}
+              {item.blockType === 'Hero' && <Hero props={item as Types.Hero} />}
+              {item.blockType === 'Heading' && <Heading props={item as Types.Heading} />}
+              {item.blockType === 'ImageListBlock' && <ImageListBlock props={item as Types.ImageListBlock} />}
            </React.Fragment> 
           );
         })}
