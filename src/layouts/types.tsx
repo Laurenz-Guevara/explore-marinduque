@@ -3,12 +3,12 @@ export interface Item {
   blockType: string;
 }
 
-export interface Heading extends Item{
+export interface HeadingBlock extends Item{
   headingOne: string;
   headingTwo: string;
 }
 
-export interface Hero extends Item {
+export interface HeroBlock extends Item {
   headingOne: string;
   mainHeading: string;
 }
@@ -32,6 +32,18 @@ export interface ImageListBlock extends Item {
   height: number;
   url: string;
 }
+
+export interface CarouselBlock extends Item{
+  autoplay: string;
+  CarouselField: CarouselField[];
+}
+
+export interface CarouselField {
+  media: Media;
+  title: string;
+  secondary: string;
+  id: number;
+  }
 
 export interface Response {
   docs: Array<Docs>;

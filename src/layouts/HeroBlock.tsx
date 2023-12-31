@@ -1,6 +1,6 @@
-import { Hero } from '@/layouts/types';
+import { HeroBlock } from '@/layouts/types';
 
-export default function Navbar({props} : {props : Hero}) {
+export default function Navbar({props} : {props : HeroBlock}) {
   return (
     <section className="splashpage relative h-screen grid place-items-center text-center">
       <div className="bg-black opacity-20 w-full h-full absolute top-0"></div>

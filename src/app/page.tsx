@@ -3,9 +3,10 @@
 import * as Types from '@/layouts/types';
 
 import React, { useEffect, useState } from 'react';
-import Hero from '@/layouts/Hero'
-import Heading from '@/layouts/Heading'
+import HeroBlock from '@/layouts/HeroBlock'
+import HeadingBlock from '@/layouts/HeadingBlock'
 import ImageListBlock from '@/layouts/ImageListBlock'
+import CarouselBlock from '@/layouts/CarouselBlock'
 
 export default function Home() {
   const [data, setData] = useState<Types.Response>();
@@ -34,9 +35,10 @@ export default function Home() {
         data.docs[0].layout.map((item: Types.Item, idx: number) => {
           return (
             <React.Fragment key={idx}>
-              {item.blockType === 'Hero' && <Hero props={item as Types.Hero} />}
-              {item.blockType === 'Heading' && <Heading props={item as Types.Heading} />}
+              {item.blockType === 'Hero' && <HeroBlock props={item as Types.HeroBlock} />}
+              {item.blockType === 'Heading' && <HeadingBlock props={item as Types.HeadingBlock} />}
               {item.blockType === 'ImageListBlock' && <ImageListBlock props={item as Types.ImageListBlock} />}
+              {item.blockType === 'Carousel' && <CarouselBlock props={item as Types.CarouselBlock} />}
            </React.Fragment> 
           );
         })}

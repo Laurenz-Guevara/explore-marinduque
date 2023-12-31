@@ -1,6 +1,6 @@
-import { Heading } from '@/layouts/types';
+import { HeadingBlock } from '@/layouts/types';
 
-export default function Heading({props} : {props : Heading}) {
+export default function Heading({props} : {props : HeadingBlock}) {
   return (
     <section className="w-full py-20 flex justify-center text-center">
       <div className="space-y-4">
