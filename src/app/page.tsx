@@ -7,9 +7,10 @@ import HeroBlock from '@/layouts/HeroBlock'
 import HeadingBlock from '@/layouts/HeadingBlock'
 import ImageListBlock from '@/layouts/ImageListBlock'
 import CarouselBlock from '@/layouts/CarouselBlock'
+import ThreeCardBlock from '@/layouts/ThreeCardBlock'
 
 export default function Home() {
-  const [data, setData] = useState<Types.Response>();
+  const [data, setData] = useState<Types.LayoutBlocks>();
 
   const fetchData = async () => {
     try {
@@ -19,7 +20,7 @@ export default function Home() {
       }
       const result  = await response.json();
       setData(result);
-      console.log(result.docs[0])
+      console.log(result)
     } catch (error: any) {
       console.error("Error fetching data:", error.message);
     }
@@ -39,6 +40,7 @@ export default function Home() {
               {item.blockType === 'Heading' && <HeadingBlock props={item as Types.HeadingBlock} />}
               {item.blockType === 'ImageListBlock' && <ImageListBlock props={item as Types.ImageListBlock} />}
               {item.blockType === 'Carousel' && <CarouselBlock props={item as Types.CarouselBlock} />}
+              {item.blockType === 'ThreeCardBlock' && <ThreeCardBlock/>}
            </React.Fragment> 
           );
         })}

@@ -46,7 +46,6 @@ export interface CarouselField {
   }
 
 export interface Response {
-  docs: Array<Docs>;
   totalDocs: number;
   limit: number;
   totalPages: number;
@@ -58,10 +57,32 @@ export interface Response {
   nextPage: boolean | null;
 }
 
-export interface Docs {
+export interface LayoutBlocks extends Response {
+  docs: Array<Blocks>
+}
+
+export interface AccommodationBlock extends Response {
+  docs: Array<Accommodation>
+}
+
+export interface Blocks {
   id: number;
   title: string;
   layout: Array<Item>;
   slug: string;
+}
+
+export interface ThreeCardBlock extends Item {
+  cardType: "accomodation"
+}
+
+export interface Accommodation {
+  id: string;
+  location: string;
+  name: string;
+  rating: number;
+  price: number;
+  updatedAt: string;
+  media: Media;
 }
 
