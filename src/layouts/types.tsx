@@ -86,3 +86,19 @@ export interface Accommodation {
   media: Media;
 }
 
+export interface ReviewBlock extends Item {
+  backgroundImage: Media;
+  reviewItems: Array<ReviewItem>
+}
+
+interface ReviewItem {
+  picture: Media;
+  name: string,
+  review: string,
+  id: string
+}
+
+export interface SpacerBlock extends Item {
+  spacer: string;
+}
+

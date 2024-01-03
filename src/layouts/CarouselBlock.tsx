@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 
-export default function Heading({props} : {props : CarouselBlock}) {
+export default function CarouselBlock({props} : {props : CarouselBlock}) {
   const OPTIONS = { dragFree: true, containScroll: 'trimSnaps' }
   return (
     <section className="w-full container">

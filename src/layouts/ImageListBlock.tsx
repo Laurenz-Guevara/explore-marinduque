@@ -2,7 +2,7 @@ import { ImageListBlock } from '@/layouts/types';
 
 import Image from 'next/image'
 
-export default function Navbar({props} : {props: ImageListBlock}) {
+export default function ImageListBlock({props} : {props: ImageListBlock}) {
   return (
     <section className="w-full container">
       <div className="grid grid-cols-12">

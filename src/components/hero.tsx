@@ -7,7 +7,7 @@ interface NavigationItem {
   mainHeading?: string;
 }
 
-export default function Navbar() {
+export default function Hero() {
   const [navigationLinks, setNavigationLinks] = useState<NavigationItem>();
 
   const fetchNavigationLinks = async () => {

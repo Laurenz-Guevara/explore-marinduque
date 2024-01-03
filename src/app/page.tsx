@@ -8,6 +8,8 @@ import HeadingBlock from '@/layouts/HeadingBlock'
 import ImageListBlock from '@/layouts/ImageListBlock'
 import CarouselBlock from '@/layouts/CarouselBlock'
 import ThreeCardBlock from '@/layouts/ThreeCardBlock'
+import ReviewBlock from '@/layouts/ReviewBlock'
+import SpacerBlock from '@/layouts/SpacerBlock'
 
 export default function Home() {
   const [data, setData] = useState<Types.LayoutBlocks>();
@@ -41,6 +43,8 @@ export default function Home() {
               {item.blockType === 'ImageListBlock' && <ImageListBlock props={item as Types.ImageListBlock} />}
               {item.blockType === 'Carousel' && <CarouselBlock props={item as Types.CarouselBlock} />}
               {item.blockType === 'ThreeCardBlock' && <ThreeCardBlock/>}
+              {item.blockType === 'Review' && <ReviewBlock props={item as Types.ReviewBlock}/>}
+              {item.blockType === 'Spacer' && <SpacerBlock props={item as Types.SpacerBlock}/>}
            </React.Fragment> 
           );
         })}
