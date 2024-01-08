@@ -18,6 +18,10 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - name: Set environment variables
+      run: |
+        echo "Setting up Environment Variables"
+        echo "${{ secrets.ENV_FILE }}" > .env
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -37,10 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@main
-      - name: Set environment variables
-        run: |
-          echo "${{ secrets.ENV_FILE }}" > .env
+        uses: actions/checkout@main 
       - name: Download artifact
         uses: actions/download-artifact@main
         with:
