@@ -102,3 +102,27 @@ export interface SpacerBlock extends Item {
   spacer: string;
 }
 
+export interface Footer {
+  createdAt: string;
+  footerItems: Array<FooterItems>;
+  footerText: string;
+  globalType: string;
+  id: string;
+  socials: Socials;
+  updatedAt: string;
+  logo: Media;
+}
+
+interface FooterItems {
+  title: string;
+  href: string;
+  id: string;
+}
+
+interface Socials {
+  href: string;
+  icon: Media;
+  id: string;
+  name: string;
+}
+

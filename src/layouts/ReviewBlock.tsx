@@ -6,12 +6,12 @@ export default function ReviewBlock({props} : {props: ReviewBlock}) {
   return (
     <section className="w-full container">
       <div className="relative">
-        <Image className="rounded-xl object-cover h-full" src={props.backgroundImage.url} alt={props.backgroundImage.alt} width={props.backgroundImage.width} height={props.backgroundImage.height} />
+        <Image className="rounded-xl object-cover h-[30rem]" src={props.backgroundImage.url} alt={props.backgroundImage.alt} width={props.backgroundImage.width} height={props.backgroundImage.height} />
         <div className="grid grid-cols-3 gap-x-10 items-center absolute top-0 h-full w-full p-20">
           {props.reviewItems.map((item) => {
             return (
-              <div className="">
-                <div key={item.id} className="flex flex-wrap">
+              <div key={item.id} className="">
+                <div  className="flex flex-wrap">
                   <div className="bg-white rounded-xl w-full h-60 px-10 py-5 grid grid-rows-3">
                     <p className="row-span-2">{item.review}</p>
                     <div className="py-5 flex">

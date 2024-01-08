@@ -7,7 +7,6 @@ export default function Header() {
       <div className="w-full flex items-center justify-between text-white text-base">
         <p className="text-white font-bold tracking-widest">Lagalag</p>
         <Navbar />
-        {/* <Menu /> */}
         <p className="text-white font-semibold">Menu</p>
       </div>
     </header>
