@@ -38,6 +38,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@main
+      - name: Set environment variables
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
       - name: Download artifact
         uses: actions/download-artifact@main
         with:
