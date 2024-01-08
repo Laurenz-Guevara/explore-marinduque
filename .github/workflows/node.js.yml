@@ -18,12 +18,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: Set environment variables
-      run: |
-
-        touch .env
-        echo "${{ secrets.ENV_FILE }}" > .env
-        cat .env
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -31,6 +25,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - name: Set environment variables
+      run: |
+        touch .env
+        echo "${{ secrets.ENV_FILE }}" > .env
+        cat .env
     - run: npm run build --if-present
     - name: Archive production artifact
       uses: actions/upload-artifact@main
